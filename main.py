@@ -1,6 +1,6 @@
 import streamlit as st
 
-clues = []
+
 
 stage = "Home"
  
@@ -37,7 +37,8 @@ def begger():
 
     st.subheader(" A old bgeer known by Mr. Grey found dead beneath the railway bridge..")
 
-    menu()
+    if st.button("Menu"):
+         st.session_state.stage = "menu"
 
     
 
@@ -45,15 +46,17 @@ def body():
         st.subheader("Eveyone beleived that he was just a poor begger but in investigation we have found that the man posses a gold poclet watch engraved with sign 'A.W' .. and. a Key to a safe ....")
         st.subheader("Investigation reveals that Mr. grey was a before Arthur A wealthy businessman who dissappears 20 years ago.")
 
-        clues.append("Pocket watch")
+        st.info("Mr. Grey was a Former millioonaire")
         if st.button("Return to menu"):
-            menu()
+            st.session_state.stage = "menu"
 
 def c_scene():
         st.subheader("Blood is spilled everywhere beneath the bridge and there is a knife without any fingerprints... ")
+        st.markdown("A sign was drawn in sand")
+        st.info("ylimaf ")
 
         if st.button("Return to menu "):
-            menu()
+            st.session_state.stage = "menu"
 
 def suspect():
         st.subheader(" Select the suspect to investigate")
@@ -67,6 +70,10 @@ def suspect():
 
         if st.button("4. Fathee thomas (local priest )"):
             st.session_state.stage = "father"
+
+        st.write("")
+        if st.button("Return to menu"):
+             st.session_state.stage = "menu"
 
 def jack():
         st.subheader("Jack Miller")
@@ -114,7 +121,8 @@ def ethan():
      if st.button("return to suspects"):
           st.session_state.stage = "suspect"
 
-def menu():
+def menu(): 
+        st.subheader("Menu\n\n")
         if st.button("Examine the body"):
            
            st.session_state.stage = "body"
@@ -126,6 +134,9 @@ def menu():
 
         if st.button("Questions the suspects."):
            st.session_state.stage = "suspect"
+
+        if st.button("Found the Accused"):
+             st.session_state.stage = "accusation"
 def location():
      st.subheader("Select the location to investigate")
 
@@ -133,6 +144,12 @@ def location():
           st.session_state.stage = "bank"
      if st.button("Shelter"):
           st.session_state.stage = "shelter"
+
+     st.write("")
+     st.write("")
+
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu"
 
 def bank():
      st.subheader("Bank")
@@ -159,8 +176,33 @@ def shelter():
      if st.button("Return to menu"):
           st.session_state.stage = "menu"
 
-def clues():
-     pass
+def accusation():
+     st.subheader("Choose the murderer")
+     if st.button("Father Thomas"):
+          st.session_state.stage ="f"
+     if st.button("Sarah Whitmore"):
+          st.session_state.stage = "s"
+     if st.button("Ethan brooks"):
+          st.session_state.stage = "e"
+     if st.button("Jack Miller"):
+          st.session_state.stage = "j"
+     
+     
+
+def f ():
+     st.subheader("Father Thomas")
+     st.warning("Wrong Accused.......")
+def s():
+    st.subheader("Sarah Whitemore")
+    st.success("Found the murderer")
+    st.write("She killed her father out of resentment.... We found 'ylimaf' in crime scene it reverse says 'family' ")
+def j():
+     st.subheader("Jack Miller")
+     st.warning("Wrong accused....")
+
+def e():
+     st.subheader("Ethan Brooks")
+     st.warning("WRONG ACCUSED....")
 
 
 
@@ -171,7 +213,8 @@ def clues():
 
 if st.session_state.stage == "Home":
     case()
-
+elif st.session_state.stage == "menu":
+     menu()
 elif st.session_state.stage == "case1" :
     begger()
 
@@ -203,6 +246,19 @@ elif st.session_state.stage == "bank":
 
 elif st.session_state.stage == "shelter":
      shelter()
+elif st.session_state.stage == "f":
+     f()
+elif st.session_state.stage == "e":
+     e()
+elif st.session_state.stage == "s":
+     s()
+elif st.session_state.stage == "j":
+     j()
+
+elif st.session_state.stage == "accusation":
+     accusation()
+
+    
 
 
 
