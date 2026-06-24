@@ -1,6 +1,6 @@
 import streamlit as st
 
-
+clues = []
 
 stage = "Home"
  
@@ -45,6 +45,7 @@ def body():
         st.subheader("Eveyone beleived that he was just a poor begger but in investigation we have found that the man posses a gold poclet watch engraved with sign 'A.W' .. and. a Key to a safe ....")
         st.subheader("Investigation reveals that Mr. grey was a before Arthur A wealthy businessman who dissappears 20 years ago.")
 
+        clues.append("Pocket watch")
         if st.button("Return to menu"):
             menu()
 
@@ -55,16 +56,17 @@ def c_scene():
             menu()
 
 def suspect():
+        st.subheader(" Select the suspect to investigate")
         if st.button("1. Jack Miller (Former partner)"):
-            jack()
+            st.session_state.stage = "jack"
 
         if st.button("2. Sarah (estrangled daughter)"):
-            pass
+            st.session_state.stage = "sarah"
         if st.button("3. Ethan brooks (investigate journalist)"):
-            pass
+            st.session_state.stage =" ethan"
 
         if st.button("4. Fathee thomas (local priest )"):
-            pass
+            st.session_state.stage = "father"
 
 def jack():
         st.subheader("Jack Miller")
@@ -77,18 +79,88 @@ def jack():
 
         st.markdown("Secret : He forged documents to steal company")
 
+        if st.button(" return to suspects"):
+             st.session_state.stage = "suspect"
+
+def father ():
+     st.subheader("Father Thomas ")
+     st.markdown("Age : 61")
+     st.markdown("Local priest")
+
+     st.markdown("THE only person who knows arthur real personality")
+     st.markdown("Secret : Hidden")
+     st.markdown("Motive : He has been hiding from detectives")
+
+def sarah():
+     st.subheader("Sarah Whitmore ")
+     st.markdown("Age : 40")
+
+     st.markdown("believes that arthur abandoned the family")
+     st.markdown("Motivee : Years of resentment")
+     st.markdown("SECRET : She recently found out that her father is still alive")
+
+     if st.button("Return to suspects"):
+          st.session_state.stage = "suspect"
+
+def ethan():
+     st.subheader("Ethan Brooks")
+     st.markdown("Age: 35")
+
+     st.markdown("Investigative journalist")
+     st.markdown("Has spent years of investigating in Arthur's disappearance")
+     st.markdown("Secret : A sensational story could make his career")
+
+     st.markdown("Motive : He secretly met arthur one week before his murder ")
+     if st.button("return to suspects"):
+          st.session_state.stage = "suspect"
+
 def menu():
-        if st.button("Examin the body"):
+        if st.button("Examine the body"):
            
            st.session_state.stage = "body"
+        if st.button("Visit Locations"):
+             st.session_state.stage = "location"
     
         if st.button("Investigate Crime scene"):
            st.session_state.stage = "c_scene"
 
         if st.button("Questions the suspects."):
            st.session_state.stage = "suspect"
+def location():
+     st.subheader("Select the location to investigate")
 
-    
+     if st.button("Bank"):
+          st.session_state.stage = "bank"
+     if st.button("Shelter"):
+          st.session_state.stage = "shelter"
+
+def bank():
+     st.subheader("Bank")
+
+     st.markdown("Inside Safety deposit box you found")
+
+     st.markdown("- Ownership paper")
+
+     st.info("'Nothing important found")
+
+     if st.button("Return to locations"):
+          st.session_state.stage= "location"
+
+def shelter():
+     st.subheader("Shelter")
+     st.markdown("You searched arthur's shelter")
+     st.markdown("You found")
+
+     st.markdown("- OLD Photographs")
+     st.markdown("- His DIARY")
+
+     st.markdown(" The Diary Says : ' After 20 years I will finally expose them ' ")
+
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu"
+
+def clues():
+     pass
 
 
 
@@ -111,6 +183,27 @@ elif st.session_state.stage == "case3":
 
 elif st.session_state.stage == "suspect":
      suspect()
+
+elif st.session_state.stage == "c_scene":
+     c_scene()
+elif st.session_state.stage == "body":
+    body()
+
+elif st.session_state.stage == "jack":
+     jack()
+
+elif st.session_state.stage == "emily":
+     emily()
+
+elif st.session_state.stage == "location":
+     location()
+
+elif st.session_state.stage == "bank":
+     bank()
+
+elif st.session_state.stage == "shelter":
+     shelter()
+
 
 
 
