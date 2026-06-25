@@ -24,7 +24,13 @@ def emily():
     st.header("Murder of Emily White")
 
     st.subheader("Victim")
-    st.caption("A old begger known by Mr. Grey found death beneath the railway bridge.. ")
+    st.caption("A teacher found dead in sweltering july day")
+    st.write(" ")
+    st.write(" ")
+
+    if st.button("Menu"):
+         st.session_state.stage = "menu1"
+
 
 
 def angelina():
@@ -49,6 +55,19 @@ def body():
         st.info("Mr. Grey was a Former millioonaire")
         if st.button("Return to menu"):
             st.session_state.stage = "menu"
+def body1():
+     st.subheader("Body of Emily ")
+     st.write(" ")
+     st.write(" ")
+
+     st.subheader(" A Ftesh murdered body , No sign of force entry, No Fingerprints on body. ")
+     st.write(" ")
+     st.warning(" A sign of vey deep cut in the body ")
+     st.write(" ")
+     if st.button("Return to menu "):
+          st.session_state.stage = "menu1"
+def body2():
+     pass
 
 def c_scene():
         st.subheader("Blood is spilled everywhere beneath the bridge and there is a knife without any fingerprints... ")
@@ -57,6 +76,20 @@ def c_scene():
 
         if st.button("Return to menu "):
             st.session_state.stage = "menu"
+def c_scene1():
+     st.subheader("Crime scene of Emily ")
+     st.write(" ")
+
+     st.subheader("No sign of forced Entry ! No murder weapon  found. ")
+     st.info("Just 'Dusty all over around' ")
+
+     st.write(" ")
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu1"
+
+def c_scene2():
+     pass
+
 
 def suspect():
         st.subheader(" Select the suspect to investigate")
@@ -66,7 +99,7 @@ def suspect():
         if st.button("2. Sarah (estrangled daughter)"):
             st.session_state.stage = "sarah"
         if st.button("3. Ethan brooks (investigate journalist)"):
-            st.session_state.stage =" ethan"
+            st.session_state.stage ="ethan"
 
         if st.button("4. Fathee thomas (local priest )"):
             st.session_state.stage = "father"
@@ -74,6 +107,60 @@ def suspect():
         st.write("")
         if st.button("Return to menu"):
              st.session_state.stage = "menu"
+
+def suspect1():
+     st.subheader("Select the culprit to investigate")
+     st.write(" ")
+
+     if st.button("1. Gardner "):
+          st.session_state.stage = "gardner"
+     st.write(" ")
+
+     if st.button("2. The librarian"):
+          st.session_state.stage = "librarian"
+
+     st.write(" ")
+
+     if st.button("3. Principal"):
+          st.session_state.stage = "principal"
+     st.write(" ")
+
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu1"
+
+def gardner():
+     st.subheader("Suspect 1 : Gardner")
+
+     st.write(" ")
+     st.write(" ")
+
+     st.subheader("Testimony : He says he was trimming the bushes")
+
+     st.write(" ")
+     if st.button("Retun to suspects"):
+          st.session_state.stage = "suspect1"
+
+def librarian():
+     st.subheader("Suspect 2 : Librarian")
+     st.write(" ")
+     st.write("")
+     st.subheader("Testimony : She says she was organizing the books in AC controlled library")
+
+     st.write(" ")
+     if st.button("Return to suspects"):
+          st.session_state.stage = "suspect1"
+
+def principal():
+     st.subheader("Suspect 3 : Principal")
+
+     st.write(" ")
+     st.write(" ")
+
+     st.subheader("Testimony : He says he was in meeting all day")
+     st.write(" ")
+
+     if st.button("return to suspects"):
+          st.session_state.stage = "suspect1"
 
 def jack():
         st.subheader("Jack Miller")
@@ -137,6 +224,27 @@ def menu():
 
         if st.button("Found the Accused"):
              st.session_state.stage = "accusation"
+
+def menu1():
+     st.subheader("Menu")
+     st.write(" ")
+     st.write(" ")
+
+     if st.button("Examine the body"):
+          st.session_state.stage = "body1"
+     st.write(" ")
+     if st.button("Invetigate Crime Scene"):
+          st.session_state.stage = "scene1"
+     st.write(" ")
+
+     if st.button("Invetigate suspects"):
+          st.session_state.stage = "suspect1"
+     st.write(" ")
+     if st.button("Find the Accused"):
+          st.session_state.stage = "accusation1"
+
+
+     
 def location():
      st.subheader("Select the location to investigate")
 
@@ -186,6 +294,10 @@ def accusation():
           st.session_state.stage = "e"
      if st.button("Jack Miller"):
           st.session_state.stage = "j"
+def accusation1():
+     pass
+def accusation2():
+     pass
      
      
 
@@ -215,6 +327,9 @@ if st.session_state.stage == "Home":
     case()
 elif st.session_state.stage == "menu":
      menu()
+elif st.session_state.stage == "menu1":
+     menu1()
+
 elif st.session_state.stage == "case1" :
     begger()
 
@@ -226,18 +341,38 @@ elif st.session_state.stage == "case3":
 
 elif st.session_state.stage == "suspect":
      suspect()
+elif st.session_state.stage == "suspect1":
+     suspect1()
 
 elif st.session_state.stage == "c_scene":
      c_scene()
+elif st.session_state.stage == "scene1":
+     c_scene1()
+
 elif st.session_state.stage == "body":
     body()
+elif st.session_state.stage == "body1":
+     body1()
 
 elif st.session_state.stage == "jack":
+     
      jack()
 
+elif st.session_state.stage == "sarah":
+     sarah()
+
+elif st.session_state.stage == "father":
+     father()
+elif st.session_state.stage == "ethan":
+     ethan()
 elif st.session_state.stage == "emily":
      emily()
-
+elif st.session_state.stage == "gardner":
+     gardner()
+elif st.session_state.stage == "librarian":
+     librarian()
+elif st.session_state.stage == "principal":
+     principal()
 elif st.session_state.stage == "location":
      location()
 
