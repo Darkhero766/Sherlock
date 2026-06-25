@@ -35,7 +35,20 @@ def emily():
 
 def angelina():
 
-    pass
+    st.title("Case 3")
+    st.caption(" On a DarkScary night ⛈️⛈️⛈️ ")
+    st.write(" ")
+    st.caption("When a strong thunderbolt Hit the Eath We can hear someone screaming....")
+    st.write(" ")
+    st.caption("Ahhhhhhhh........")
+    st.write(" ")
+    st.caption("Anglina was found dead in her own private library.....")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+
+    if st.button("Menu"):
+         st.session_state.stage = "menu2"
 
 def begger():
     st.title("Case 1")
@@ -243,6 +256,26 @@ def menu1():
      if st.button("Find the Accused"):
           st.session_state.stage = "accusation1"
 
+def menu2():
+     st.title("Menu")
+     st.write(" ")
+     st.write(" ")
+     st.subheader("Select the option to continue")
+
+     st.write(" ")
+     st.write(" ")
+     if st.button("Examine the Body"):
+          st.session_state.stage = "body2"
+     st.write(" ")
+     if st.button("Investigate Crime Scene"):
+          st.session_state.stage = "scene2"
+     st.write(" ")
+     if st.button("Question the suspects"):
+          st.session_state.stage = "suspect2"
+     st.write(" ")
+     if st.button("Announce the Culprit"):
+          st.session_state.stage = "accustaion2"
+
 
      
 def location():
@@ -295,7 +328,17 @@ def accusation():
      if st.button("Jack Miller"):
           st.session_state.stage = "j"
 def accusation1():
-     pass
+     st.title(" Find the Culprit !!")
+     st.write(" ")
+     if st.button("1. Gardner"):
+          st.session_state.stage = "g"
+     st.write(" ")
+     if st.button("2. Librarian"):
+          st.session_state.stage = "l"
+     st.write(" ")
+
+     if st.button("3. Principal"):
+          st.session_state.stage = "p"
 def accusation2():
      pass
      
@@ -316,9 +359,33 @@ def e():
      st.subheader("Ethan Brooks")
      st.warning("WRONG ACCUSED....")
 
+#case2
+
+def g ():
+     st.subheader("Gardner")
+
+     st.write (" ")
+     st.write(" ")
+     st.success(" Found it .The real culprit")
+     st.write("")
+     st.info("He killed it Cause she set foot on his best flower. (Psychoo)")
+
+def l ():
+     st.subheader(" Librarian")
+     st.write(" ")
+     st.write(" ")
+
+     st.warning("Wrong Person......... You lose")
 
 
-    
+
+def p():
+     st.subheader("Principal")
+     st.write(" ")
+     st.write(" ")
+     st.warning("Wrong Person..... YOU LOSE.")
+
+
 
 
 
@@ -390,10 +457,20 @@ elif st.session_state.stage == "s":
 elif st.session_state.stage == "j":
      j()
 
+#case 2
+elif st.session_state.stage == "g":
+     g()
+elif st.session_state.stage == "l":
+     l()
+elif st.session_state.stage == "p":
+     p()
+
 elif st.session_state.stage == "accusation":
      accusation()
+elif st.session_state.stage == "accusation1":
+     accusation1()
 
-    
+
 
 
 
