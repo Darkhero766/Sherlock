@@ -80,7 +80,18 @@ def body1():
      if st.button("Return to menu "):
           st.session_state.stage = "menu1"
 def body2():
-     pass
+     st.title("Body of Victim")
+     st.write(" ")
+     st.caption("Frail bluish body ")
+     st.write(" ")
+     st.caption("Its look like something 'Heavy fall on her body' ")
+     st.write(" ")
+     st.info ("Cause of death : Due to heavy load on her body .....")
+
+     st.write(" ")
+     st.write(" ")
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu2"
 
 def c_scene():
         st.subheader("Blood is spilled everywhere beneath the bridge and there is a knife without any fingerprints... ")
@@ -101,7 +112,19 @@ def c_scene1():
           st.session_state.stage = "menu1"
 
 def c_scene2():
-     pass
+     st.title("Crime Scene")
+     st.write(" ")
+     st.caption(" A Room of books filled with mystery.....🎶🎶🎶")
+     st.write(" ")
+     st.caption(" A body marks on floor , No forced Entry sign , But window is open ")
+     st.write(" ")
+     st.caption("Found a piece. of paper Says")
+     st.write(" ")
+
+     st.info("     'Mine'    ")
+
+     if st.button("Return to menu "):
+          st.session_state.stage = "menu2"
 
 
 def suspect():
@@ -140,6 +163,62 @@ def suspect1():
 
      if st.button("Return to menu"):
           st.session_state.stage = "menu1"
+
+def suspect2():
+     st.title(" Suspects ")
+     st.write(" ")
+     st.subheader("Select from following to question")
+     st.write(" ")
+     if st.button("1. Arthur (Peon) "):
+          st.session_state.stags = "arthur"
+     st.write(" ")
+     st.write(" ")
+     if st.button("2. Sweeper"):
+          st.session_state.stage = "sweeper"
+     st.write(" ")
+
+     st.write(" ")
+
+     if st.button(" Holmes (Fiance)"):
+          st.session_state.stage = "holmes"
+
+     st.write(" ")
+     st.write(" ")
+     if st.button("Return to menu"):
+          st.session_state.stage = "menu2"
+#case 3
+
+def arthur():
+     st.title(" Suspect : Arthur (Peon) ")
+     st.write(" ")
+     st.write(" ")
+
+     st.caption("Testimony : 'I was on duty outside the building When i hear the scream.....")
+     st.write(" ")
+     if st.button("Return to suspects"):
+
+          st.session_state.stage = "suspect2"
+
+def sweeper():
+     st.title("Suspect 2 : Sweeper ")
+     st.write(" ")
+     st.write(" ")
+     st.caption("Testimony : I was on duty just cleaning the floor....")
+     st.write(" ")
+     if st.button("Return to suspects"):
+          st.session_state.stage = "suspect2"
+
+def holmes():
+     st.title("Suspect 3 : Holmes (Fiance)")
+     st.write(" ")
+
+     st.write(" ")
+     st.caption("Testimony : 'I was at my home but she texted me that that someone is following her two days before it.....")
+     st.write(" ")
+
+     if st.button("Return to suspects"):
+          st.session_state.stage = "suspect2"
+#case 2
 
 def gardner():
      st.subheader("Suspect 1 : Gardner")
@@ -340,10 +419,36 @@ def accusation1():
      if st.button("3. Principal"):
           st.session_state.stage = "p"
 def accusation2():
-     pass
-     
-     
+     st.title("Find the culprit !!")
+     st.write(" ")
+     if st.button("1. Arthur (peon)"):
+          st.session_state.stage = "ar"
+     st.write(" ")
+     if st.button("2. Sweeper"):
+          st.session_state.stage = "sw"
+     st.write(" ")
+     if st.button("3. Holmes (Fiance)"):
+          st.session_state.stage = "ho"
 
+def ar():
+     st.title("Arthur (peon)")
+     st.write(" ")
+     st.warning("Wrong Person....... ")
+
+def sw():
+     st.title("Sweeper...")
+     st.write(" ")
+
+     st.warning("Wrong person....... You lose")
+
+def ho():
+     st.title("Holmes (Fiance)")
+     st.write(" ")
+     st.success("You found the real culprit ")
+     st.write(" ")
+     st.caption(" This man killed herr cuz he found about her past relationship")
+     
+#case 3 upar
 def f ():
      st.subheader("Father Thomas")
      st.warning("Wrong Accused.......")
@@ -396,6 +501,8 @@ elif st.session_state.stage == "menu":
      menu()
 elif st.session_state.stage == "menu1":
      menu1()
+elif st.session_state.stage == "menu2":
+     menu2()
 
 elif st.session_state.stage == "case1" :
     begger()
@@ -410,16 +517,22 @@ elif st.session_state.stage == "suspect":
      suspect()
 elif st.session_state.stage == "suspect1":
      suspect1()
+elif st.session_state.stage == "suspect2":
+     suspect2()
 
 elif st.session_state.stage == "c_scene":
      c_scene()
 elif st.session_state.stage == "scene1":
      c_scene1()
+elif st.session_state.stage == "scene2":
+     c_scene2()
 
 elif st.session_state.stage == "body":
     body()
 elif st.session_state.stage == "body1":
      body1()
+elif st.session_state.stage =="body2":
+     body2()
 
 elif st.session_state.stage == "jack":
      
@@ -464,11 +577,26 @@ elif st.session_state.stage == "l":
      l()
 elif st.session_state.stage == "p":
      p()
+elif st.session_state.stage == "arthur":
+     arthur()
 
+elif st.session_state.stage == "sweeper":
+     sweeper()
+elif st.session_state.stage == "holmes":
+     holmes()
+
+elif st.session_state.stage == "ho":
+     ho()
+elif st.session_state.stage == "sw":
+     sw()
+elif st.session_state.stage == "ar":
+     ar()
 elif st.session_state.stage == "accusation":
      accusation()
 elif st.session_state.stage == "accusation1":
      accusation1()
+elif st.session_state.stage == "accusation2":
+     accusation2()
 
 
 
