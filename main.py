@@ -353,7 +353,7 @@ def menu2():
           st.session_state.stage = "suspect2"
      st.write(" ")
      if st.button("Announce the Culprit"):
-          st.session_state.stage = "accustaion2"
+          st.session_state.stage = "accusation2"
 
 
      
@@ -433,13 +433,13 @@ def accusation2():
 def ar():
      st.title("Arthur (peon)")
      st.write(" ")
-     st.warning("Wrong Person....... ")
+     st.error("Wrong Person....... ")
 
 def sw():
      st.title("Sweeper...")
      st.write(" ")
 
-     st.warning("Wrong person....... You lose")
+     st.error("Wrong person....... You lose")
 
 def ho():
      st.title("Holmes (Fiance)")
@@ -451,18 +451,18 @@ def ho():
 #case 3 upar
 def f ():
      st.subheader("Father Thomas")
-     st.warning("Wrong Accused.......")
+     st.error("Wrong Accused.......")
 def s():
     st.subheader("Sarah Whitemore")
     st.success("Found the murderer")
     st.write("She killed her father out of resentment.... We found 'ylimaf' in crime scene it reverse says 'family' ")
 def j():
      st.subheader("Jack Miller")
-     st.warning("Wrong accused....")
+     st.error("Wrong accused....")
 
 def e():
      st.subheader("Ethan Brooks")
-     st.warning("WRONG ACCUSED....")
+     st.error("WRONG ACCUSED....")
 
 #case2
 
@@ -480,7 +480,7 @@ def l ():
      st.write(" ")
      st.write(" ")
 
-     st.warning("Wrong Person......... You lose")
+     st.error("Wrong Person......... You lose")
 
 
 
@@ -488,7 +488,7 @@ def p():
      st.subheader("Principal")
      st.write(" ")
      st.write(" ")
-     st.warning("Wrong Person..... YOU LOSE.")
+     st.error("Wrong Person..... YOU LOSE.")
 
 
 
